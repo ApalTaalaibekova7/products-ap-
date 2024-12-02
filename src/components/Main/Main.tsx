@@ -10,7 +10,7 @@ const Main: React.FC = () => {
     }, [fetchProducts]);
   
     return (
-      <div>
+      <div className='container'>
         {products.map((product) => (
           <div key={product.id} className="product-card">
             <img src={product.image} alt={product.title} className="product-image" />
@@ -21,7 +21,7 @@ const Main: React.FC = () => {
               <button onClick={() => toggleLike(product.id)}>
                 {product.liked ? 'Не нравиться' : 'Нравиться'}
               </button>
-              <button onClick={() => deleteProduct(product.id)}>Удалить</button>
+              <button className='delete' onClick={() => deleteProduct(product.id)}>Удалить</button>
             </div>
           </div>
         ))}

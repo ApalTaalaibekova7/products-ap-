@@ -1,0 +1,101 @@
+/* Контейнер для карточек, выравнивание по 3 колонки */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Карточка продукта */
+  .product-card {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 250px;
+    padding: 10px;
+}
+  
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+  
+  /* Изображение продукта */
+  .product-image {
+    width: 100%;
+    height: 150px; 
+    object-fit: cover;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  /* Контент карточки */
+  .product-content {
+    padding: 15px;
+  }
+  
+  /* Заголовок продукта */
+  .product-title {
+    font-size: 1.1rem;
+    margin: 10px 0;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  /* Цена продукта */
+  .product-price {
+    font-size: 25px;
+    color: #28a745;
+    margin-bottom: 10px;
+  }
+  
+  /* Описание продукта */
+  .product-description {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  /* Кнопки действий */
+  .product-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .product-buttons button {
+    background-color: #9baaf4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 0.85rem;
+    margin: 15px;
+  }
+  
+  .product-buttons button:hover {
+    background-color: #2280e5;
+  }
+  
+  .product-buttons .delete {
+    background-color: #e65766;
+  }
+  
+  .product-buttons .delete:hover {
+    background-color: #c0091c;
+  }
+  
+  /* Адаптивность: если экран слишком маленький, сделать одну колонку */
+  @media (max-width: 768px) {
+    .container {
+      grid-template-columns: 1fr; /* 1 колонка на мобильных */
+    }
+  }
+  
