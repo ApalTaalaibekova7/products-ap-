@@ -1,0 +1,41 @@
+/* styles.css */
+
+/* Контейнер для пагинации */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Кнопки пагинации */
+  .pagination button {
+    padding: 10px 15px;
+    margin: 0 5px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Кнопка пагинации при наведении */
+  .pagination button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Кнопка пагинации при отключении */
+  .pagination button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+  }
+  
+  /* Информация о текущей странице */
+  .pagination span {
+    font-size: 16px;
+    margin: 0 10px;
+  }
+  

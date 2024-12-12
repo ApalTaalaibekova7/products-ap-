@@ -12,16 +12,16 @@ export interface Product {
 
 // Тип состояния хранилища
 export interface ProductStore {
-  products: Product[]; // — массив продуктов, где каждый продукт соответствует типу Product.
-  fetchProducts: () => Promise<void>; // — асинхронная функция для загрузки данных о продуктах.
-  toggleLike: (id: number) => void; // — функция для изменения состояния лайка конкретного продукта.
-  deleteProduct: (id: number) => void; // — функция для удаления продукта из списка.
+  products: Product[]; // Список продуктов
+  fetchProducts: () => Promise<void>; // Загрузка продуктов
+  toggleLike: (id: number) => void; // Переключение лайка
+  deleteProduct: (id: number) => void; // Удаление продукта
+  addProduct: (newProduct: Product) => void; // Добавление нового продукта
 }
 
 // Создание Zustand Store
 export const useProductStore = create<ProductStore>((set) => ({
-  products: [], // Здесь используется функция create из библиотеки Zustand для создания хранилища. Хранилище содержит:
-  // Состояние: начальный список продуктов (products: []). Методы: функции, которые изменяют состояние.
+  products: [],
 
   fetchProducts: async () => {
     try {
@@ -29,27 +29,64 @@ export const useProductStore = create<ProductStore>((set) => ({
       if (!response.ok) {
         throw new Error('Failed to fetch products');
       }
-      // Это асинхронная функция, которая делает запрос на внешний API (https://fakestoreapi.com/products), чтобы получить данные о продуктах.
       const data: Product[] = await response.json();
-      set({ products: data.map((item) => ({ ...item, liked: false })) });
-      // После получения данных, он преобразует их в формат Product[], добавляя каждому продукту поле liked, которое изначально установлено в false.
+      set({
+        products: data.map((item) => ({
+          ...item,
+          liked: false, // Добавляем поле liked
+        })),
+      });
     } catch (error) {
       console.error('Error fetching products:', error);
     }
-    // Если запрос не удался, то ловится ошибка и выводится сообщение в консоль.
   },
 
-  toggleLike: (id) => // Эта функция принимает id продукта и изменяет его состояние лайка.
+  toggleLike: (id) =>
     set((state) => ({
       products: state.products.map((product) =>
         product.id === id ? { ...product, liked: !product.liked } : product
       ),
     })),
 
-  deleteProduct: (id) => // Эта функция принимает id продукта и удаляет продукт с этим id из массива продуктов.
+  deleteProduct: (id) =>
     set((state) => ({
       products: state.products.filter((product) => product.id !== id),
     })),
-}));
+
+    addProduct: (newProduct) =>
+      set((state) => {
+        const updatedProducts = [...state.products, newProduct];
+        console.log('Продукты после добавления:', [...state.products, newProduct]);
+        return { products: updatedProducts };
+      }),
+  }));
 
 export default useProductStore;
+
+
+
+// </div>
+// <h1>Список продуктов</h1>
+// <div>
+//   {products.map((product) => (
+//     <div key={product.id} className="product-card">
+//       <Link to={`/products/${product.id}`}>
+//         <img src={product.image} alt={product.title} />
+//         <h3>{product.title}</h3>
+//         <p>{product.price.toFixed(2)}$</p>
+//       </Link>
+//     </div>
+//   ))}
+// </div>
+// <Link to="/create-product">
+//   <button>Добавить продукт</button>
+// </Link>
+
+{/* <div className="controls">
+<Link to="/create-product">
+  <button className="add-product">Добавить продукт</button>
+</Link>
+<button */}
+
+
+// </div>

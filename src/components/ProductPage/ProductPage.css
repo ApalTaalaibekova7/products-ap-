@@ -1,0 +1,82 @@
+/* Общий контейнер страницы продукта */
+.product-page {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Заголовок продукта */
+.product-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Изображение продукта */
+.product-image {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  object-fit: cover;
+}
+
+/* Описание продукта */
+.product-description {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* Цена продукта */
+.product-price {
+  font-size: 18px;
+  color: #4CAF50;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Статус продукта (избранное или нет) */
+.product-status {
+  font-size: 16px;
+  color: #777;
+  margin-bottom: 20px;
+}
+
+/* Кнопка "Назад на главную" */
+.back-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 20px;
+  color: #fff;
+  background-color: #4CAF50;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+  width: 130px;
+  height: 50px;
+}
+
+.back-button:hover {
+  background-color: #45a049;
+}
+
+/* Сообщение об ошибке */
+.error-message {
+  font-size: 18px;
+  color: #f44336;
+  margin-top: 20px;
+  font-weight: bold;
+}

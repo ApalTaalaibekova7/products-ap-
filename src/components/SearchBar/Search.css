@@ -1,0 +1,21 @@
+/* Стили для поиска */
+.search-bar {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0px;
+  }
+  
+  .search-bar input {
+    width: 300px;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #4CAF50;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  .search-bar input:focus {
+    border-color: #45a049;
+  }
+  
